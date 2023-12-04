@@ -24,7 +24,7 @@ print(sum(vg.keys()))
 p2 = 0
 for s in ss:
     cubes = re.findall(r'(\d+) (red|green|blue)', s)
-    l = [(int(value), color) for value, color in cubes]
-    colors = {color: max(value for value, clr in l if clr == color) for _, color in l}
+    colors = {color: max(int(i) for i, clr in cubes if clr == color) for _, color in cubes}
     p2 += colors['red']*colors['green']*colors['blue']
+    
 print(p2)
